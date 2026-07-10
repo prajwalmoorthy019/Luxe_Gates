@@ -1,0 +1,88 @@
+const galleryData = [
+    {
+        id: 1,
+        name: "Premium Sliding Gate",
+        category: "Sliding",
+        price: "₹1,45,000",
+        image: "https://picsum.photos/600/400?random=1",
+    },
+    {
+        id: 2,
+        name: "Modern Swing Gate",
+        category: "Swing",
+        price: "₹1,20,000",
+        image: "https://picsum.photos/600/400?random=2",
+    },
+    {
+        id: 3,
+        name: "Designer Laser Gate",
+        category: "Designer",
+        price: "₹2,10,000",
+        image: "https://picsum.photos/600/400?random=3",
+    },
+    {
+        id: 4,
+        name: "Industrial Gate",
+        category: "Industrial",
+        price: "₹2,75,000",
+        image: "https://picsum.photos/600/400?random=4",
+    },
+    {
+        id: 5,
+        name: "Cantilever Gate",
+        category: "Cantilever",
+        price: "₹2,30,000",
+        image: "https://picsum.photos/600/400?random=5",
+    },
+    {
+        id: 6,
+        name: "Wood Finish Gate",
+        category: "Wood Finish",
+        price: "₹1,90,000",
+        image: "https://picsum.photos/600/400?random=6",
+    },
+    {
+        id: 7,
+        name: "Classic Sliding Gate",
+        category: "Sliding",
+        price: "₹1,35,000",
+        image: "https://picsum.photos/600/400?random=7",
+    },
+    {
+        id: 8,
+        name: "Luxury Designer Gate",
+        category: "Designer",
+        price: "₹3,15,000",
+        image: "https://picsum.photos/600/400?random=8",
+    },
+    {
+        id: 9,
+        name: "Heavy Duty Industrial",
+        category: "Industrial",
+        price: "₹3,40,000",
+        image: "https://picsum.photos/600/400?random=9",
+    },
+    {
+        id: 10,
+        name: "Elegant Swing Gate",
+        category: "Swing",
+        price: "₹1,55,000",
+        image: "https://picsum.photos/600/400?random=10",
+    },
+    {
+        id: 11,
+        name: "Premium Cantilever",
+        category: "Cantilever",
+        price: "₹2,85,000",
+        image: "https://picsum.photos/600/400?random=11",
+    },
+    {
+        id: 12,
+        name: "Royal Wooden Gate",
+        category: "Wood Finish",
+        price: "₹2,40,000",
+        image: "https://picsum.photos/600/400?random=12",
+    },
+];
+
+export default galleryData;
