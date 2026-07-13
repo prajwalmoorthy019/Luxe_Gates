@@ -13,22 +13,100 @@ import CreateQuotation from "./pages/CreateQuotation";
 import Gallery from "./pages/Gallery";
 import Settings from "./pages/Settings";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   return (
     <CustomerProvider>
       <BrowserRouter>
+
         <Routes>
+
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/customers/new" element={<CreateCustomer />} />
-          <Route path="/customers/view/:id" element={<ViewCustomer />} />
-          <Route path="/customers/edit/:id" element={<EditCustomer />} />
-          <Route path="/quotations" element={<Quotations />} />
-          <Route path="/quotations/new" element={<CreateQuotation />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/settings" element={<Settings />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/customers"
+            element={
+              <ProtectedRoute>
+                <Customers />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/customers/new"
+            element={
+              <ProtectedRoute>
+                <CreateCustomer />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/customers/view/:id"
+            element={
+              <ProtectedRoute>
+                <ViewCustomer />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/customers/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditCustomer />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/quotations"
+            element={
+              <ProtectedRoute>
+                <Quotations />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/quotations/new"
+            element={
+              <ProtectedRoute>
+                <CreateQuotation />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/gallery"
+            element={
+              <ProtectedRoute>
+                <Gallery />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+
         </Routes>
+
       </BrowserRouter>
     </CustomerProvider>
   );

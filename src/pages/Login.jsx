@@ -10,18 +10,23 @@ function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    console.log("Email:", email);
-    console.log("Password:", password);
+    console.log("Login Clicked");
 
     if (
       email === "admin@luxegates.com" &&
       password === "luxegates123"
     ) {
-      console.log("Login Success");
-      setError("");
-      navigate("/dashboard");
+      localStorage.setItem("isLoggedIn", "true");
+
+      console.log("Stored:", localStorage.getItem("isLoggedIn"));
+
+      console.log("Before Navigate");
+
+      navigate("/dashboard", { replace: true });
+
+      console.log("After Navigate");
     } else {
-      console.log("Login Failed");
+      console.log("Wrong Credentials");
       setError("Invalid email or password.");
     }
   };
