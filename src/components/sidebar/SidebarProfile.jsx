@@ -11,7 +11,7 @@ function SidebarProfile() {
                 <div>
 
                     <h3 className="text-white font-bold text-lg">
-                        Prajwal
+                        Pooja
                     </h3>
 
                     <p className="text-zinc-400 text-sm">
