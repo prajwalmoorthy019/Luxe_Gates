@@ -1,5 +1,4 @@
-import Sidebar from "../components/Sidebar";
-
+import Sidebar from "../components/sidebar/Sidebar";
 function MainLayout({ children }) {
   return (
     <div className="min-h-screen bg-[#f5f6fa] flex p-5 gap-5">
