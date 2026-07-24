@@ -2,14 +2,12 @@ import MainLayout from "../layouts/MainLayout";
 
 import {
   Bell,
-  FileText,
-  Clock3,
-  CheckCircle,
   Users,
-  Plus,
-  Image,
-  BarChart3,
+  FileText,
+  CheckCircle2,
+  Clock3,
 } from "lucide-react";
+
 
 import {
   ResponsiveContainer,
@@ -19,125 +17,131 @@ import {
   Tooltip,
 } from "recharts";
 
+const chartData = [
+  { month: "Jan", revenue: 420000 },
+  { month: "Feb", revenue: 520000 },
+  { month: "Mar", revenue: 690000 },
+  { month: "Apr", revenue: 610000 },
+  { month: "May", revenue: 980000 },
+  { month: "Jun", revenue: 1120000 },
+];
+
+const stats = [
+  {
+    title: "Total Quotations",
+    value: "128",
+    growth: "+18% this month",
+    icon: <FileText size={34} />,
+    bg: "bg-yellow-100",
+    iconColor: "text-yellow-700",
+  },
+  {
+    title: "Pending",
+    value: "32",
+    growth: "+12% this month",
+    icon: <Clock3 size={34} />,
+    bg: "bg-orange-100",
+    iconColor: "text-orange-600",
+  },
+  {
+    title: "Approved",
+    value: "96",
+    growth: "+25% this month",
+    icon: <CheckCircle2 size={34} />,
+    bg: "bg-green-100",
+    iconColor: "text-green-600",
+  },
+  {
+    title: "Customers",
+    value: "156",
+    growth: "+20% this month",
+    icon: <Users size={34} />,
+    bg: "bg-blue-100",
+    iconColor: "text-blue-600",
+  },
+];
+
+const quotations = [
+  {
+    id: "QT-0128",
+    customer: "Rahul Sharma",
+    project: "Sliding Gate Installation",
+    amount: "₹2,45,000",
+    status: "Pending",
+    date: "14 Jul 2026",
+    color: "bg-orange-100 text-orange-700",
+  },
+  {
+    id: "QT-0127",
+    customer: "Anita Desai",
+    project: "Main Entrance Gate",
+    amount: "₹3,10,000",
+    status: "Approved",
+    date: "13 Jul 2026",
+    color: "bg-green-100 text-green-700",
+  },
+  {
+    id: "QT-0126",
+    customer: "Vikram Mehta",
+    project: "Villa Sliding Gate",
+    amount: "₹1,80,000",
+    status: "Sent",
+    date: "12 Jul 2026",
+    color: "bg-blue-100 text-blue-700",
+  },
+];
+
 function Dashboard() {
-
-  const stats = [
-
-    {
-      title: "Total Quotations",
-      value: "128",
-      icon: <FileText size={30} />,
-      color: "bg-yellow-100 text-yellow-700",
-      growth: "+18%",
-    },
-
-    {
-      title: "Pending",
-      value: "32",
-      icon: <Clock3 size={30} />,
-      color: "bg-orange-100 text-orange-600",
-      growth: "+12%",
-    },
-
-    {
-      title: "Approved",
-      value: "96",
-      icon: <CheckCircle size={30} />,
-      color: "bg-green-100 text-green-600",
-      growth: "+25%",
-    },
-
-    {
-      title: "Customers",
-      value: "156",
-      icon: <Users size={30} />,
-      color: "bg-blue-100 text-blue-600",
-      growth: "+20%",
-    },
-
-  ];
-
-  const chartData = [
-
-    { month: "Jan", quotations: 18 },
-
-    { month: "Feb", quotations: 25 },
-
-    { month: "Mar", quotations: 32 },
-
-    { month: "Apr", quotations: 28 },
-
-    { month: "May", quotations: 45 },
-
-    { month: "Jun", quotations: 52 },
-
-  ];
-
   return (
-
     <MainLayout>
 
-      <div className="p-10">
+      <div className="p-10 bg-[#fafafa] min-h-screen">
+
         {/* ================= HEADER ================= */}
 
-        <div className="flex items-start justify-between mb-12">
-
-          {/* LEFT */}
+        <div className="flex justify-between items-start mb-10">
 
           <div>
 
-            <p className="text-yellow-600 font-bold tracking-[4px] uppercase">
+            <p className="uppercase tracking-[5px] text-yellow-700 font-bold text-sm">
               Good Morning ☀️
             </p>
 
-            <h1 className="text-6xl font-black text-zinc-900 mt-3">
+            <h1 className="text-6xl font-black mt-2">
               Pooja
             </h1>
 
-            <p className="text-zinc-500 text-xl mt-3">
+            <p className="text-3xl text-zinc-500 mt-3">
               Welcome back to Luxe Gates Management
             </p>
 
-            <p className="text-zinc-400 mt-2">
+            <p className="text-zinc-400 mt-4 text-lg">
               Tuesday • 14 July 2026
             </p>
 
           </div>
 
-          {/* RIGHT */}
-
           <div className="flex items-center gap-8">
 
-            {/* Notification */}
+            <div className="relative bg-white rounded-2xl shadow-lg p-5">
 
-            <button className="relative w-14 h-14 rounded-2xl bg-white shadow-lg border border-zinc-100 hover:shadow-xl transition-all duration-300">
+              <Bell size={28} />
 
-              <Bell
-                size={24}
-                className="mx-auto text-zinc-700"
-              />
-
-              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-
+              <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-red-500 text-white text-xs flex items-center justify-center font-bold">
                 3
+              </span>
 
-              </div>
+            </div>
 
-            </button>
+            <div className="bg-white rounded-3xl shadow-lg px-7 py-5 flex items-center gap-5">
 
-            {/* Profile */}
-
-            <div className="bg-white rounded-3xl px-6 py-4 shadow-lg border border-zinc-100 flex items-center gap-4 hover:shadow-xl transition-all">
-
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-amber-700 flex items-center justify-center text-black font-black text-lg shadow-lg">
-
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-2xl font-bold">
                 P
-
               </div>
 
               <div>
 
-                <h3 className="text-lg font-bold">
+                <h3 className="font-bold text-2xl">
                   Pooja
                 </h3>
 
@@ -155,51 +159,38 @@ function Dashboard() {
 
         {/* ================= KPI CARDS ================= */}
 
-        <div className="grid grid-cols-4 gap-7 mb-10">
-
-          {stats.map((item, index) => (
+        <div className="grid grid-cols-4 gap-8 mb-10">
+          {stats.map((card) => (
 
             <div
-              key={index}
-              className="group bg-white rounded-[30px] border border-zinc-100 hover:border-yellow-300 hover:shadow-[0_25px_60px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden cursor-pointer"
+              key={card.title}
+              className="bg-white rounded-[32px] p-8 border border-zinc-100 shadow-lg hover:shadow-[0_20px_50px_rgba(212,175,55,.18)] hover:-translate-y-1 transition-all duration-300"
             >
 
-              {/* Gold Top Border */}
+              <div className="flex justify-between items-center">
 
-              <div className="h-1 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-700"></div>
+                <div>
 
-              <div className="p-8">
+                  <p className="text-zinc-500 text-sm font-semibold uppercase tracking-wider">
+                    {card.title}
+                  </p>
 
-                <div className="flex justify-between items-start">
+                  <h2 className="text-5xl font-black mt-4">
+                    {card.value}
+                  </h2>
 
-                  <div>
+                  <p className="text-green-600 mt-5 font-semibold">
+                    {card.growth}
+                  </p>
 
-                    <p className="text-zinc-500 text-lg">
-                      {item.title}
-                    </p>
+                </div>
 
-                    <h2 className="text-6xl font-black text-zinc-900 mt-5">
-                      {item.value}
-                    </h2>
-
-                    <div className="flex items-center gap-2 mt-7">
-
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
-
-                      <span className="text-green-600 font-semibold">
-                        {item.growth} this month
-                      </span>
-
-                    </div>
-
+                <div
+                  className={`w-20 h-20 rounded-3xl flex items-center justify-center ${card.bg}`}
+                >
+                  <div className={card.iconColor}>
+                    {card.icon}
                   </div>
-
-                  <div
-                    className={`w-20 h-20 rounded-3xl flex items-center justify-center shadow-lg transition-all duration-500 group-hover:scale-110 ${item.color}`}
-                  >
-                    {item.icon}
-                  </div>
-
                 </div>
 
               </div>
@@ -210,37 +201,85 @@ function Dashboard() {
 
         </div>
 
-        {/* ================= CHART SECTION ================= */}
+        {/* ================= ANALYTICS ================= */}
 
-        <div className="grid grid-cols-2 gap-8 mb-10">
+        <div className="grid grid-cols-[2fr_1fr] gap-8 mb-10">
 
           {/* LEFT */}
 
-          <div className="bg-white rounded-[30px] border border-zinc-100 shadow-lg p-8">
+          <div className="bg-white rounded-[34px] shadow-lg border border-zinc-100 p-8">
 
             <div className="flex justify-between items-center mb-8">
 
               <div>
 
-                <h2 className="text-2xl font-bold">
-                  Quotation Analytics
+                <h2 className="text-3xl font-black">
+                  Business Performance
                 </h2>
 
-                <p className="text-zinc-500 mt-1">
-                  Last 6 Months Performance
+                <p className="text-zinc-500 mt-2">
+                  Revenue generated over the last six months
                 </p>
 
               </div>
 
-              <select className="border rounded-xl px-4 py-2">
+            </div>
 
-                <option>2026</option>
+            {/* Revenue Summary */}
 
-              </select>
+            <div className="grid grid-cols-3 gap-5 mb-8">
+
+              <div className="rounded-3xl bg-gradient-to-r from-yellow-500 to-amber-700 text-white p-6 shadow-xl">
+
+                <p className="text-sm opacity-80">
+                  Revenue
+                </p>
+
+                <h2 className="text-4xl font-black mt-3">
+                  ₹12.5L
+                </h2>
+
+                <p className="mt-2 text-sm">
+                  +18% this month
+                </p>
+
+              </div>
+
+              <div className="rounded-3xl bg-white border border-zinc-200 p-6 shadow-md">
+
+                <p className="text-zinc-500 text-sm">
+                  Quotations
+                </p>
+
+                <h2 className="text-4xl font-black mt-3">
+                  128
+                </h2>
+
+                <p className="text-green-600 mt-2 text-sm">
+                  +26 New
+                </p>
+
+              </div>
+
+              <div className="rounded-3xl bg-white border border-zinc-200 p-6 shadow-md">
+
+                <p className="text-zinc-500 text-sm">
+                  Customers
+                </p>
+
+                <h2 className="text-4xl font-black mt-3">
+                  156
+                </h2>
+
+                <p className="text-blue-600 mt-2 text-sm">
+                  +12 Added
+                </p>
+
+              </div>
 
             </div>
 
-            <div className="h-[320px]">
+            <div className="h-[340px]">
 
               <ResponsiveContainer width="100%" height="100%">
 
@@ -248,25 +287,11 @@ function Dashboard() {
 
                   <defs>
 
-                    <linearGradient
-                      id="quotationGradient"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
+                    <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
 
-                      <stop
-                        offset="5%"
-                        stopColor="#D4AF37"
-                        stopOpacity={0.45}
-                      />
+                      <stop offset="5%" stopColor="#EAB308" stopOpacity={0.45} />
 
-                      <stop
-                        offset="95%"
-                        stopColor="#D4AF37"
-                        stopOpacity={0}
-                      />
+                      <stop offset="95%" stopColor="#EAB308" stopOpacity={0} />
 
                     </linearGradient>
 
@@ -274,24 +299,18 @@ function Dashboard() {
 
                   <XAxis
                     dataKey="month"
-                    axisLine={false}
                     tickLine={false}
+                    axisLine={false}
                   />
 
-                  <Tooltip
-                    contentStyle={{
-                      borderRadius: 18,
-                      border: "none",
-                      boxShadow: "0 20px 50px rgba(0,0,0,.15)",
-                    }}
-                  />
+                  <Tooltip />
 
                   <Area
                     type="monotone"
-                    dataKey="quotations"
-                    stroke="#C89B3C"
-                    strokeWidth={5}
-                    fill="url(#quotationGradient)"
+                    dataKey="revenue"
+                    stroke="#CA8A04"
+                    strokeWidth={4}
+                    fill="url(#colorRevenue)"
                   />
 
                 </AreaChart>
@@ -302,83 +321,172 @@ function Dashboard() {
 
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT SIDE STARTS */}
 
-          <div className="bg-white rounded-[30px] border border-zinc-100 shadow-lg overflow-hidden">
-            <div className="p-8 border-b border-zinc-100 flex justify-between items-center">
+          <div className="space-y-8">
 
-              <div>
+            {/* Dashboard Summary */}
 
-                <h2 className="text-2xl font-bold">
-                  Recent Quotations
-                </h2>
+            <div className="bg-gradient-to-br from-[#0B1220] via-[#10192D] to-[#172033] rounded-[34px] p-8 text-white shadow-xl">
 
-                <p className="text-zinc-500 mt-1">
-                  Latest customer quotations
-                </p>
+              <p className="uppercase tracking-[4px] text-yellow-400 text-sm font-bold">
+                Today's Summary
+              </p>
 
-              </div>
+              <h2 className="text-4xl font-black mt-4">
+                ₹5,42,000
+              </h2>
 
-              <button className="bg-gradient-to-r from-yellow-500 to-amber-700 text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-all shadow-lg">
-                View All
-              </button>
+              <p className="text-zinc-300 mt-3">
+                Estimated business generated today
+              </p>
 
-            </div>
+              <div className="mt-8 space-y-5">
 
-            <div className="divide-y divide-zinc-100">
+                <div>
 
-              {[
-                {
-                  id: "QT-0128",
-                  customer: "Rahul Sharma",
-                  amount: "₹2,45,000",
-                  status: "Pending",
-                  color: "bg-orange-100 text-orange-700",
-                },
-                {
-                  id: "QT-0127",
-                  customer: "Anita Desai",
-                  amount: "₹3,10,000",
-                  status: "Approved",
-                  color: "bg-green-100 text-green-700",
-                },
-                {
-                  id: "QT-0126",
-                  customer: "Vikram Mehta",
-                  amount: "₹1,80,000",
-                  status: "Sent",
-                  color: "bg-blue-100 text-blue-700",
-                },
-              ].map((quote) => (
+                  <div className="flex justify-between text-sm mb-2">
 
-                <div
-                  key={quote.id}
-                  className="flex justify-between items-center px-8 py-6 hover:bg-zinc-50 transition-all"
-                >
+                    <span>Quotation Progress</span>
 
-                  <div>
-
-                    <h3 className="font-bold text-lg">
-                      {quote.customer}
-                    </h3>
-
-                    <p className="text-zinc-500">
-                      {quote.id}
-                    </p>
+                    <span>82%</span>
 
                   </div>
 
-                  <div className="text-xl font-bold">
-                    {quote.amount}
-                  </div>
+                  <div className="h-3 bg-white/10 rounded-full overflow-hidden">
 
-                  <div className={`px-4 py-2 rounded-full text-sm font-semibold ${quote.color}`}>
-                    {quote.status}
+                    <div className="h-full w-[82%] bg-gradient-to-r from-yellow-400 to-amber-600 rounded-full"></div>
+
                   </div>
 
                 </div>
 
-              ))}
+                <div>
+
+                  <div className="flex justify-between text-sm mb-2">
+
+                    <span>Customer Satisfaction</span>
+
+                    <span>96%</span>
+
+                  </div>
+
+                  <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+
+                    <div className="h-full w-[96%] bg-gradient-to-r from-green-400 to-emerald-500 rounded-full"></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Recent Quotations */}
+
+            <div className="bg-white rounded-[34px] shadow-lg border border-zinc-100 overflow-hidden">
+
+              <div className="flex justify-between items-center px-8 py-7 border-b border-zinc-100">
+
+                <div>
+
+                  <h2 className="text-2xl font-black">
+                    Recent Quotations
+                  </h2>
+
+                  <p className="text-zinc-500 mt-2">
+                    Latest customer quotations
+                  </p>
+
+                </div>
+
+                <button className="bg-gradient-to-r from-yellow-500 to-amber-700 text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-all">
+
+                  View All
+
+                </button>
+
+              </div>
+
+              <div className="divide-y divide-zinc-100">
+
+                {quotations.map((quote) => (
+
+                  <div
+                    key={quote.id}
+                    className="group flex justify-between items-center px-8 py-6 rounded-2xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  >
+
+                    {/* Left */}
+
+                    <div className="flex items-center gap-5 min-w-[340px]">
+
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-700 flex items-center justify-center text-white text-xl font-bold shadow-lg">
+
+                        {quote.customer.charAt(0)}
+
+                      </div>
+
+                      <div>
+
+                        <h3 className="font-bold text-lg text-zinc-900">
+
+                          {quote.customer}
+
+                        </h3>
+
+                        <p className="text-zinc-500 text-sm mt-1">
+
+                          {quote.project}
+
+                        </p>
+
+                        <p className="text-zinc-400 text-xs mt-1">
+
+                          {quote.id} • {quote.date}
+
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                    {/* Right */}
+
+                    <div className="flex items-center gap-6">
+
+                      <div className="w-[150px] text-right">
+
+                        <p className="text-2xl font-black">
+
+                          {quote.amount}
+
+                        </p>
+
+                      </div>
+
+                      <span
+                        className={`w-[120px] text-center py-2 rounded-full text-sm font-bold ${quote.color}`}
+                      >
+
+                        {quote.status}
+
+                      </span>
+
+                      <button className="w-24 py-2 rounded-xl border border-zinc-200 hover:border-yellow-500 hover:bg-yellow-50 transition-all font-semibold">
+
+                        View
+
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </div>
 
             </div>
 
@@ -387,63 +495,17 @@ function Dashboard() {
         </div>
 
         {/* ================= QUICK ACTIONS ================= */}
-
-        <div className="grid grid-cols-4 gap-6">
-
-          {[
-            {
-              title: "New Quotation",
-              subtitle: "Create quotation",
-              icon: <Plus size={26} />,
-            },
-            {
-              title: "Customers",
-              subtitle: "Manage customers",
-              icon: <Users size={26} />,
-            },
-            {
-              title: "Gallery",
-              subtitle: "Browse designs",
-              icon: <Image size={26} />,
-            },
-            {
-              title: "Reports",
-              subtitle: "Business analytics",
-              icon: <BarChart3 size={26} />,
-            },
-          ].map((item) => (
-
-            <div
-              key={item.title}
-              className="group bg-white rounded-[28px] border border-zinc-100 p-7 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(212,175,55,.18)] transition-all duration-300 cursor-pointer"
-            >
-
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-700 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-all">
-
-                {item.icon}
-
-              </div>
-
-              <h3 className="mt-6 text-xl font-bold text-zinc-900">
-                {item.title}
-              </h3>
-
-              <p className="mt-2 text-zinc-500">
-                {item.subtitle}
-              </p>
-
-            </div>
-
-          ))}
-
-        </div>
-
       </div>
 
     </MainLayout>
 
   );
-
 }
 
 export default Dashboard;
+
+
+
+
+
+
